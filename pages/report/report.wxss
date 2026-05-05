@@ -1,0 +1,276 @@
+.report-page {
+}
+
+/* 卡片装饰样式 */
+.card {
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 1;
+}
+
+/* 报告头部卡片 */
+.card-report-header {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F9F9F9 100%);
+}
+
+.card-report-header::before {
+  background-color: #4FB6B2;
+}
+
+/* 情绪趋势卡片 */
+.card-emotion-trend {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F9F9F9 100%);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.04);
+}
+
+.card-emotion-trend::before {
+  background-color: #4FB6B2;
+}
+
+/* 情绪分布卡片 */
+.card-emotion-distribution {
+  background-color: #FFFFFF;
+}
+
+.card-emotion-distribution::before {
+  background-color: #2F6E9E;
+}
+
+/* 触发事件统计卡片 */
+.card-trigger-stats {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F9F9F9 100%);
+}
+
+.card-trigger-stats::before {
+  background-color: #4FB6B2;
+}
+
+/* 高频词云卡片 */
+.card-word-cloud {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F9F9F9 100%);
+}
+
+.card-word-cloud::before {
+  background-color: #4FB6B2;
+}
+
+/* 文字总结卡片 */
+.card-summary {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F9F9F9 100%);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.04);
+}
+
+.card-summary::before {
+  background-color: #2F6E9E;
+}
+
+/* 夜间模式下的卡片装饰 */
+.theme--dark .card {
+  box-shadow: none;
+  border: 1rpx solid rgba(255, 255, 255, 0.08);
+}
+
+.theme--dark .card-report-header {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+}
+
+.theme--dark .card-emotion-trend {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.theme--dark .card-emotion-distribution {
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.theme--dark .card-trigger-stats {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+}
+
+.theme--dark .card-word-cloud {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+}
+
+.theme--dark .card-summary {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.theme--dark .card-report-header::before {
+  background-color: rgba(79, 182, 178, 0.8);
+}
+
+.theme--dark .card-emotion-trend::before {
+  background-color: rgba(79, 182, 178, 0.8);
+}
+
+.theme--dark .card-emotion-distribution::before {
+  background-color: rgba(47, 110, 158, 0.8);
+}
+
+.theme--dark .card-trigger-stats::before {
+  background-color: rgba(79, 182, 178, 0.8);
+}
+
+.theme--dark .card-word-cloud::before {
+  background-color: rgba(79, 182, 178, 0.8);
+}
+
+.theme--dark .card-summary::before {
+  background-color: rgba(47, 110, 158, 0.8);
+}
+
+.report-tabs {
+  display: flex;
+  flex-direction: row;
+  border-radius: 999rpx;
+  background-color: #F0ECE6;
+  padding: 4rpx;
+}
+
+.report-tab {
+  flex: 1;
+  text-align: center;
+  font-size: 26rpx;
+  padding: 8rpx 0;
+  border-radius: 999rpx;
+  color: #666666;
+}
+
+.report-tab--active {
+  background-color: #FFFFFF;
+  color: #2F6E9E;
+  font-weight: 600;
+}
+
+.trend-chart {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-top: 24rpx;
+}
+
+.trend-item {
+  flex: 1;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.trend-bar-wrapper {
+  width: 16rpx;
+  height: 160rpx;
+  position: relative;
+  margin-bottom: 8rpx;
+}
+
+.trend-bar-bg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  border-radius: 999rpx;
+  background-color: #E4E5EA;
+}
+
+.trend-bar-fill {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 999rpx;
+  background-color: #4FB6B2;
+}
+
+.trend-date {
+  font-size: 22rpx;
+}
+
+.distribution-list {
+  margin-top: 16rpx;
+}
+
+.distribution-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.distribution-label {
+  width: 140rpx;
+  font-size: 26rpx;
+}
+
+.distribution-bar {
+  flex: 1;
+  height: 16rpx;
+  background-color: #F0ECE6;
+  border-radius: 999rpx;
+  overflow: hidden;
+  margin: 0 12rpx;
+}
+
+.distribution-bar-fill {
+  height: 100%;
+  background-color: #4FB6B2;
+  border-radius: 999rpx;
+}
+
+.distribution-bar-fill.trigger {
+  background-color: #FFB36B;
+}
+
+.distribution-percent {
+  width: 80rpx;
+  text-align: right;
+}
+
+.report-text-block {
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+}
+
+.report-heading {
+  font-size: 28rpx;
+  font-weight: 500;
+  margin-top: 6rpx;
+}
+
+.word-cloud {
+  margin-top: 24rpx;
+  padding: 24rpx;
+  background-color: #F8F6F2;
+  border-radius: 16rpx;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+  justify-content: center;
+  align-items: center;
+  min-height: 240rpx;
+}
+
+.word-item {
+  padding: 8rpx 16rpx;
+  border-radius: 999rpx;
+  background-color: rgba(79, 182, 178, 0.1);
+  color: #2F6E9E;
+  transition: all 0.3s ease;
+}
+
+.word-item:hover {
+  transform: scale(1.05);
+  background-color: rgba(79, 182, 178, 0.2);
+}

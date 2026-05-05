@@ -1,0 +1,342 @@
+/** 全局样式与主题 **/
+page {
+  background-color: #F7F5F2;
+  color: #333333;
+  font-size: 30rpx;
+}
+
+.page-shell {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.bg-layer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  background-color: #F7F5F2;
+}
+
+/* 低饱和“情绪氛围背景” */
+.bg-layer.bg--neutral {
+  background-image:
+    radial-gradient(1200rpx 800rpx at 20% 10%, rgba(79, 182, 178, 0.14), rgba(79, 182, 178, 0) 60%),
+    radial-gradient(1100rpx 900rpx at 90% 30%, rgba(255, 179, 107, 0.10), rgba(255, 179, 107, 0) 55%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(247, 245, 242, 1));
+}
+
+.bg-layer.bg--calm {
+  background-image:
+    radial-gradient(1200rpx 900rpx at 30% 10%, rgba(79, 182, 178, 0.18), rgba(79, 182, 178, 0) 60%),
+    radial-gradient(900rpx 700rpx at 90% 20%, rgba(47, 110, 158, 0.10), rgba(47, 110, 158, 0) 55%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(247, 245, 242, 1));
+}
+
+.bg-layer.bg--warm {
+  background-image:
+    radial-gradient(1200rpx 900rpx at 25% 15%, rgba(255, 179, 107, 0.16), rgba(255, 179, 107, 0) 62%),
+    radial-gradient(900rpx 700rpx at 90% 20%, rgba(79, 182, 178, 0.10), rgba(79, 182, 178, 0) 55%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(247, 245, 242, 1));
+}
+
+.bg-layer.bg--soft-negative {
+  background-image:
+    radial-gradient(1200rpx 900rpx at 25% 12%, rgba(226, 122, 122, 0.12), rgba(226, 122, 122, 0) 62%),
+    radial-gradient(900rpx 700rpx at 88% 20%, rgba(47, 110, 158, 0.10), rgba(47, 110, 158, 0) 55%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(247, 245, 242, 1));
+}
+
+.page-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+.page-wrapper {
+  min-height: 100vh;
+  padding: 40rpx 32rpx 40rpx;
+  box-sizing: border-box;
+}
+
+.font--large {
+  font-size: 38rpx;
+}
+
+.font--large .page-title {
+  font-size: 44rpx;
+}
+
+.font--large .card-title {
+  font-size: 36rpx;
+}
+
+.font--large .primary-btn {
+  font-size: 36rpx;
+}
+
+.font--large .secondary-btn {
+  font-size: 34rpx;
+}
+
+.font--large .secondary-btn.small {
+  font-size: 32rpx;
+}
+
+.font--large .section-title {
+  font-size: 34rpx;
+}
+
+.font--large .card-subtitle,
+.font--large .page-subtitle,
+.font--large .subtext {
+  font-size: 30rpx;
+}
+
+.font--large .tag {
+  font-size: 28rpx;
+}
+
+.theme--dark {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.theme--dark .bg-layer {
+  background-color: #1F2123;
+}
+
+.theme--dark .bg-layer.bg--neutral,
+.theme--dark .bg-layer.bg--calm,
+.theme--dark .bg-layer.bg--warm,
+.theme--dark .bg-layer.bg--soft-negative {
+  background-image:
+    radial-gradient(1200rpx 900rpx at 25% 12%, rgba(79, 182, 178, 0.16), rgba(79, 182, 178, 0) 62%),
+    radial-gradient(900rpx 700rpx at 88% 20%, rgba(47, 110, 158, 0.14), rgba(47, 110, 158, 0) 55%),
+    linear-gradient(180deg, rgba(31, 33, 35, 0.9), rgba(31, 33, 35, 1));
+}
+
+.theme--dark .card {
+  background-color: rgba(255, 255, 255, 0.06);
+  box-shadow: none;
+  border: 1rpx solid rgba(255, 255, 255, 0.08);
+}
+
+.theme--dark .page-subtitle,
+.theme--dark .card-subtitle,
+.theme--dark .subtext,
+.theme--dark .muted {
+  color: rgba(255, 255, 255, 0.66);
+}
+
+.theme--dark .divider {
+  background-color: rgba(255, 255, 255, 0.10);
+}
+
+.theme--dark .primary-btn[disabled] {
+  background-color: rgba(79, 182, 178, 0.35);
+}
+
+.theme--dark .secondary-btn {
+  background-color: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.88);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.theme--dark .secondary-btn.small {
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.theme--dark input,
+.theme--dark textarea {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.theme--dark textarea,
+.theme--dark input {
+  caret-color: rgba(79, 182, 178, 0.95);
+}
+
+.theme--dark .record-textarea,
+.theme--dark .intro-input {
+  background-color: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.theme--dark .voice-btn {
+  background-color: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.88);
+  border-color: rgba(79, 182, 178, 0.55);
+}
+
+.theme--dark .settings-value {
+  color: rgba(255, 255, 255, 0.70);
+}
+
+.theme--dark .settings-value.link,
+.theme--dark .link-text {
+  color: rgba(79, 182, 178, 0.92);
+}
+
+.page-title {
+  font-size: 40rpx;
+  font-weight: 600;
+  margin-bottom: 16rpx;
+}
+
+.page-subtitle {
+  font-size: 26rpx;
+  color: #888888;
+  margin-bottom: 32rpx;
+}
+
+.card {
+  background-color: #FFFFFF;
+  border-radius: 24rpx;
+  padding: 32rpx;
+  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.04);
+  margin-bottom: 24rpx;
+  box-sizing: border-box;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.card-title {
+  font-size: 32rpx;
+  font-weight: 600;
+}
+
+.card-subtitle {
+  font-size: 26rpx;
+  color: #999999;
+}
+
+.primary-btn {
+  width: 100%;
+  height: 96rpx;
+  line-height: 96rpx;
+  border-radius: 999rpx;
+  background-color: #4FB6B2;
+  color: #ffffff;
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: 600;
+  border: none;
+}
+
+.primary-btn[disabled] {
+  background-color: #A7D8D6;
+}
+
+.secondary-btn {
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: 999rpx;
+  background-color: #FFFFFF;
+  color: #2F6E9E;
+  text-align: center;
+  font-size: 30rpx;
+  border: 2rpx solid #2F6E9E;
+}
+
+.secondary-btn.small {
+  width: auto;
+  height: 72rpx;
+  line-height: 72rpx;
+  padding: 0 28rpx;
+  font-size: 28rpx;
+}
+
+.tag-group {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 16rpx -8rpx 0;
+}
+
+.tag {
+  padding: 12rpx 24rpx;
+  border-radius: 999rpx;
+  border: 1px solid #E2E2E2;
+  font-size: 24rpx;
+  margin: 8rpx;
+  color: #666666;
+  background-color: #FFFFFF;
+}
+
+.tag--active {
+  border-color: #4FB6B2;
+  background-color: #E2F4F3;
+  color: #2F6E9E;
+}
+
+.theme--dark .tag {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.theme--dark .tag--active {
+  border-color: rgba(79, 182, 178, 0.7);
+  background-color: rgba(79, 182, 178, 0.14);
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.reduce-motion,
+.reduce-motion view,
+.reduce-motion text,
+.reduce-motion button,
+.reduce-motion image,
+.reduce-motion input,
+.reduce-motion textarea,
+.reduce-motion picker,
+.reduce-motion switch,
+.reduce-motion scroll-view {
+  transition: none !important;
+  animation: none !important;
+}
+
+.section-title {
+  font-size: 30rpx;
+  font-weight: 500;
+  margin-bottom: 16rpx;
+}
+
+.subtext {
+  font-size: 24rpx;
+  color: #999999;
+  line-height: 1.6;
+}
+
+.subtext + .subtext {
+  margin-top: 16rpx;
+}
+
+.divider {
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.06);
+  margin: 24rpx 0;
+}
+
+.muted {
+  color: #AAAAAA;
+}
+
+.expand-btn {
+  margin-top: 16rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: #4FB6B2;
+  cursor: pointer;
+  padding: 8rpx 0;
+}
+
+.expand-btn:hover {
+  text-decoration: underline;
+}

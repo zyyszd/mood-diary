@@ -1,0 +1,36 @@
+# 依赖文件夹
+node_modules/
+.venv/
+venv/
+env/
+
+# 小程序编译输出
+miniprogram_npm/
+cloudfunctions/
+cloudbase/
+.swan/
+
+# IDE配置
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 临时文件
+*.log
+*.tmp
+*.temp
+
+# 编译输出
+dist/
+build/
+out/
+
+# 微信开发者工具
+.project
+.settings/

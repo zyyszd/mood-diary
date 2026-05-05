@@ -1,0 +1,74 @@
+<view class="page-shell {{themeClass}} {{fontClass}} {{reduceMotionClass}}">
+  <view class="bg-layer {{bgClass}}"></view>
+  <view class="page-wrapper home-page">
+  <view class="card home-greeting">
+    <view class="card-header">
+      <view>
+        <view class="card-title">{{greetingText}}</view>
+        <view class="card-subtitle">
+          {{nickname ? (nickname + "，") : ""}}今天感觉还好吗？
+        </view>
+      </view>
+      <view class="streak-text subtext">
+        已连续记录 {{streakDays}} 天
+      </view>
+    </view>
+    <view class="today-summary" wx:if="{{todaySummary}}">
+      <view class="today-emotion">
+        <view class="today-emotion-label">当前情绪</view>
+        <view class="today-emotion-value">{{todaySummary.label}}</view>
+      </view>
+      <view class="today-tip subtext">
+        {{todaySummary.suggestion}}
+      </view>
+      <view class="today-actions">
+        <text class="link-text" bindtap="goToReport">查看详细报告</text>
+      </view>
+    </view>
+    <view class="today-empty" wx:else>
+      <view class="subtext">
+        今天还没有任何记录，试着花 1 分钟写下此刻的感受？
+      </view>
+      <button class="primary-btn quick-record-btn" bindtap="goToRecord">
+        立即记录一次情绪
+      </button>
+    </view>
+  </view>
+
+  <view class="card home-quick-entry">
+    <view class="section-title">快速记录</view>
+    <view class="subtext">3 分钟内完成一次记录</view>
+    <view class="quick-entry-buttons">
+      <button class="secondary-btn" bindtap="goToRecordText">文字记录</button>
+      <button class="secondary-btn" bindtap="goToRecordVoice">语音记录</button>
+    </view>
+  </view>
+
+  <view class="card home-timeline">
+    <view class="card-header">
+      <view class="card-title">今日时间线</view>
+      <text class="link-text" bindtap="goToHistory">查看全部</text>
+    </view>
+    <view wx:if="{{todayRecords.length}}">
+      <block wx:for="{{todayRecords}}" wx:key="id">
+        <view class="timeline-item">
+          <view class="timeline-time">{{item.time}}</view>
+          <view class="timeline-content">
+            <view class="timeline-main">
+              <view class="timeline-emotion">{{item.emotion}}</view>
+              <view class="tag-group mini" wx:if="{{item.tags && item.tags.length}}">
+                <view class="tag tag-mini" wx:for="{{item.tags}}" wx:key="*this">
+                  {{item}}
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+    <view class="subtext muted" wx:else>
+      今天还没有记录，记录越多，越能看清自己的情绪轨迹。
+    </view>
+  </view>
+  </view>
+</view>

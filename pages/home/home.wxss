@@ -1,0 +1,198 @@
+.home-page {
+}
+
+.link-text {
+  color: #2F6E9E;
+  font-size: 26rpx;
+}
+
+/* 卡片装饰通用样式 */
+.card-decoration {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-decoration::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 1;
+}
+
+/* 今日情绪卡片装饰 */
+.home-greeting {
+  margin-top: 16rpx;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F9F9F9 100%);
+}
+
+.home-greeting::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #4FB6B2;
+  z-index: 1;
+}
+
+/* 快速记录区卡片装饰 */
+.home-quick-entry {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F9F9F9 100%);
+}
+
+.home-quick-entry::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #4FB6B2;
+  z-index: 1;
+}
+
+/* 时间线卡片装饰 */
+.home-timeline {
+  position: relative;
+  overflow: hidden;
+  background-color: #FFFFFF;
+}
+
+.home-timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #2F6E9E;
+  z-index: 1;
+}
+
+/* 夜间模式下的卡片装饰 */
+.theme--dark .home-greeting {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+}
+
+.theme--dark .home-quick-entry {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+}
+
+.theme--dark .home-timeline {
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.theme--dark .home-greeting::before {
+  background-color: rgba(79, 182, 178, 0.8);
+}
+
+.theme--dark .home-quick-entry::before {
+  background-color: rgba(79, 182, 178, 0.8);
+}
+
+.theme--dark .home-timeline::before {
+  background-color: rgba(47, 110, 158, 0.8);
+}
+
+.streak-text {
+  text-align: right;
+}
+
+.today-summary {
+  margin-top: 24rpx;
+}
+
+.today-emotion {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 12rpx;
+}
+
+.today-emotion-label {
+  font-size: 26rpx;
+  color: #999999;
+  margin-right: 12rpx;
+}
+
+.today-emotion-value {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #2F6E9E;
+}
+
+.today-tip {
+  margin-top: 8rpx;
+}
+
+.today-actions {
+  margin-top: 20rpx;
+}
+
+.today-empty .primary-btn {
+  margin-top: 24rpx;
+}
+
+.quick-record-btn {
+  margin-top: 24rpx;
+}
+
+.quick-entry-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 24rpx;
+}
+
+.quick-entry-buttons .secondary-btn {
+  width: 48%;
+}
+
+.timeline-item {
+  display: flex;
+  flex-direction: row;
+  padding: 16rpx 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.timeline-time {
+  width: 120rpx;
+  font-size: 26rpx;
+  color: #999999;
+}
+
+.timeline-content {
+  flex: 1;
+}
+
+.timeline-main {
+  font-size: 28rpx;
+}
+
+.timeline-emotion {
+  margin-bottom: 8rpx;
+}
+
+.tag-group.mini {
+  margin-top: 0;
+}
+
+.tag-mini {
+  padding: 6rpx 16rpx;
+  font-size: 22rpx;
+  border-radius: 999rpx;
+  background-color: #F7F5F2;
+  border: none;
+}
+
+.link-text {
+  font-size: 26rpx;
+  color: #2F6E9E;
+}

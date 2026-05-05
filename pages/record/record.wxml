@@ -1,0 +1,175 @@
+<view class="page-shell {{themeClass}} {{fontClass}} {{reduceMotionClass}}">
+  <view class="bg-layer bg--neutral"></view>
+  <view class="page-wrapper record-page">
+  <view class="card card-greeting">
+    <view class="card-header">
+      <view class="card-title">此刻的你</view>
+      <view class="card-subtitle">{{displayTime}}</view>
+    </view>
+    <view class="subtext">
+      {{encouragementText}}
+    </view>
+  </view>
+
+  <view class="card card-mood-level">
+    <view class="section-title">整体心情</view>
+    <view class="mood-scale-labels">
+      <text>很糟</text>
+      <text>一般</text>
+      <text>很好</text>
+    </view>
+    <slider
+      min="1"
+      max="5"
+      step="1"
+      value="{{moodLevel}}"
+      show-value="false"
+      activeColor="#4FB6B2"
+      backgroundColor="#E2E2E2"
+      bindchange="onMoodChange"
+    />
+    <view class="mood-text subtext">
+      {{moodLabel}}
+    </view>
+  </view>
+
+  <view class="card card-mood-tags">
+    <view class="section-title">现在主要是什么情绪？（可多选）</view>
+    <view class="tag-group">
+      <view
+        wx:for="{{showAllMoodTags ? moodTags : moodTags.slice(0, 8)}}"
+        wx:key="value"
+        class="tag {{item.active ? 'tag--active' : ''}}"
+        bindtap="toggleMoodTag"
+        data-value="{{item.value}}"
+      >
+        {{item.label}}
+      </view>
+    </view>
+    <view class="expand-btn" bindtap="toggleMoodTags">
+      {{showAllMoodTags ? '收起' : '展开'}}
+    </view>
+  </view>
+
+  <view class="card card-trigger-tags">
+    <view class="section-title">可能和哪些事情有关？（可多选）</view>
+    <view class="tag-group">
+      <view
+        wx:for="{{showAllTriggerTags ? triggerTags : triggerTags.slice(0, 8)}}"
+        wx:key="value"
+        class="tag {{item.active ? 'tag--active' : ''}}"
+        bindtap="toggleTriggerTag"
+        data-value="{{item.value}}"
+      >
+        {{item.label}}
+      </view>
+    </view>
+    <view class="expand-btn" bindtap="toggleTriggerTags">
+      {{showAllTriggerTags ? '收起' : '展开'}}
+    </view>
+  </view>
+
+  <view class="card card-text-input">
+    <view class="section-title">想简单说说发生了什么吗？</view>
+    <textarea
+      class="record-textarea"
+      placeholder="可以写很多，也可以只写一句话，比如“今天有点累”。"
+      maxlength="1000"
+      auto-height="true"
+      value="{{content}}"
+      bindinput="onContentInput"
+    />
+  </view>
+
+  <view class="card card-voice-record">
+    <view class="card-header">
+      <view class="card-title">语音记录 & AI 聊天</view>
+      <view class="card-subtitle subtext">
+      </view>
+      </view>
+    <view class="voice-area">
+      <button
+        class="voice-btn {{isRecording ? 'voice-btn--recording' : ''}} {{reduceMotionClass ? '' : 'voice-btn--breath'}}"
+        bindtouchstart="startRecord"
+        bindtouchend="stopRecord"
+      >
+        {{isRecording ? '正在录音，松开结束' : '按住说话'}}
+      </button>
+      <view class="subtext" wx:if="{{recordDuration > 0 && !isRecording}}">
+        本次录音约 {{recordDuration}} 秒
+      </view>
+      <view class="subtext muted" wx:elif="{{!isRecording && !audioFilePath}}">
+      </view>
+      <view class="subtext record-error" wx:if="{{recordError}}">
+        {{recordError}}
+      </view>
+    </view>
+
+    <view class="audio-actions" wx:if="{{audioFilePath && !isRecording}}">
+      <button class="audio-action-btn" bindtap="playAudio">
+        <text class="icon-play">{{isPlaying ? '⏸' : '▶'}}</text>
+        <text>{{isPlaying ? '停止' : '播放'}}</text>
+      </button>
+      <button class="audio-action-btn" bindtap="transcribeAndFill" wx:if="{{!isTranscribing}}">
+        <text class="icon-transcribe">📝</text>
+        <text>转写</text>
+      </button>
+      <view class="audio-action-btn loading" wx:if="{{isTranscribing}}">
+        <text>转写中...</text>
+      </view>
+      <button class="audio-action-btn delete" bindtap="deleteAudio">
+        <text class="icon-delete">🗑</text>
+        <text>删除</text>
+      </button>
+    </view>
+
+    <view class="ai-chat-toggle" wx:if="{{recordDuration > 0}}">
+      <button class="toggle-btn {{enableAiChat ? 'toggle-btn--active' : ''}}" bindtap="toggleAiChat">
+        {{enableAiChat ? '已开启 AI 聊天' : '开启 AI 聊天'}}
+      </button>
+    </view>
+    <view class="ai-chat-area" wx:if="{{enableAiChat || aiMessages.length > 0}}">
+      <view class="chat-messages" wx:if="{{aiMessages.length > 0}}">
+        <view wx:for="{{aiMessages}}" wx:key="index" class="chat-message {{item.type === 'user' ? 'user-message' : 'ai-message'}}">
+          <view class="message-content">{{item.content}}</view>
+        </view>
+      </view>
+      <view class="chat-input-area">
+        <input
+          class="chat-input"
+          placeholder="输入消息..."
+          value="{{aiInput}}"
+          bindinput="onAiInput"
+          bindconfirm="sendAiMessage"
+        />
+        <button class="send-btn" bindtap="sendAiMessage">发送</button>
+      </view>
+    </view>
+  </view>
+
+  <view class="card card-ai-analysis" wx:if="{{aiPreview}}">
+    <view class="card-title">简单情绪分析（实验功能）</view>
+    <view class="ai-line">
+      <text class="ai-label">主要情绪：</text>
+      <text>{{aiPreview.mainEmotion}}</text>
+    </view>
+    <view class="ai-line">
+      <text class="ai-label">可能相关事件：</text>
+      <text>{{aiPreview.triggers}}</text>
+    </view>
+    <view class="ai-line subtext">
+      {{aiPreview.suggestion}}
+    </view>
+  </view>
+
+  <view class="record-footer">
+    <button class="secondary-btn" bindtap="saveWithoutAnalysis">
+      仅保存，不分析
+    </button>
+    <view style="height: 16rpx;"></view>
+    <button class="primary-btn" bindtap="saveWithAnalysis">
+      保存记录
+    </button>
+  </view>
+  </view>
+</view>

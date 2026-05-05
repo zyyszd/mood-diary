@@ -1,0 +1,92 @@
+<view class="page-shell {{themeClass}} {{fontClass}} {{reduceMotionClass}}">
+  <view class="bg-layer bg--neutral"></view>
+  <view class="page-wrapper profile-page">
+  <view class="card profile-header">
+    <view class="profile-main">
+      <view class="profile-avatar">
+        <text>{{avatarInitial}}</text>
+      </view>
+      <view class="profile-texts">
+        <view class="profile-nickname">
+          {{nickname || '未设置昵称'}}
+        </view>
+        <view class="subtext">
+          这是你自己的情绪空间，只有你可以看到。
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="card card-appearance">
+    <view class="section-title">外观与显示</view>
+    <view class="settings-item">
+      <view class="settings-label">主题模式</view>
+      <picker mode="selector" range="{{themeOptions}}" value="{{themeIndex}}" bindchange="onThemeChange">
+        <view class="settings-value link">{{themeText}}</view>
+      </picker>
+    </view>
+    <view class="settings-item">
+      <view class="settings-label">背景跟随情绪</view>
+      <switch checked="{{followMoodBg}}" bindchange="toggleFollowMoodBg" />
+    </view>
+    <view class="settings-item">
+      <view class="settings-label">字体大小</view>
+      <picker mode="selector" range="{{fontOptions}}" value="{{fontIndex}}" bindchange="onFontChange">
+        <view class="settings-value link">{{fontText}}</view>
+      </picker>
+    </view>
+    <view class="settings-item">
+      <view class="settings-label">减少动效</view>
+      <switch checked="{{reduceMotion}}" bindchange="toggleReduceMotion" />
+    </view>
+    <view class="subtext">
+      这些设置会影响整个小程序的背景氛围、字体大小与动画强度。
+    </view>
+  </view>
+
+  <view class="card card-data-privacy">
+    <view class="section-title">数据与隐私</view>
+    <view class="settings-item">
+      <view class="settings-label">存储方式</view>
+      <view class="settings-value">{{storageModeText}}</view>
+    </view>
+    <view class="settings-item" bindtap="changeStorageMode">
+      <view class="settings-label">修改存储方式</view>
+      <view class="settings-value link">点击修改</view>
+    </view>
+    <view class="settings-item" bindtap="exportData">
+      <view class="settings-label">导出数据</view>
+      <view class="settings-value link">点击导出</view>
+    </view>
+    <view class="settings-item" bindtap="importData">
+      <view class="settings-label">导入数据</view>
+      <view class="settings-value link">点击导入</view>
+    </view>
+    <view class="settings-item danger" bindtap="clearAllData">
+      <view class="settings-label">清空所有数据</view>
+      <view class="settings-value danger-text">不可恢复</view>
+    </view>
+  </view>
+
+  <view class="card card-reminder">
+    <view class="section-title">提醒</view>
+    <view class="settings-item">
+      <view class="settings-label">每日记录提醒</view>
+      <switch checked="{{dailyReminder}}" bindchange="toggleDailyReminder" />
+    </view>
+    <view class="settings-item" wx:if="{{dailyReminder}}">
+      <view class="settings-label">提醒时间</view>
+      <picker mode="time" value="{{reminderTime}}" bindchange="onReminderTimeChange" start="00:00" end="23:59">
+        <view class="settings-value link">{{reminderTime}}</view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="card card-about">
+    <view class="section-title">关于</view>
+    <view class="subtext">
+      这是一个面向个人的情绪记录小工具，只提供非医疗类的自我关怀建议，不构成任何诊断或治疗意见。
+    </view>
+  </view>
+  </view>
+</view>

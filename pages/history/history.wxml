@@ -1,0 +1,73 @@
+<view class="page-shell {{themeClass}} {{fontClass}} {{reduceMotionClass}}">
+  <view class="bg-layer bg--neutral"></view>
+  <view class="page-wrapper history-page">
+  <view class="card card-date-picker">
+    <view class="card-header">
+      <view class="card-title">按日期查看</view>
+      <picker mode="date" value="{{selectedDate}}" bindchange="onDateChange">
+        <view class="date-picker-value">
+          {{selectedDate}}
+        </view>
+      </picker>
+    </view>
+    <view class="subtext">
+      上滑可以查看更多日期，也可以通过筛选只看某些情绪或事件。
+    </view>
+  </view>
+
+  <view class="card card-filter">
+    <view class="section-title">筛选</view>
+    <view class="subtext">
+      可以只看某些情绪或触发事件（可选）。
+    </view>
+    <view class="filter-group">
+      <view class="filter-row">
+        <view class="filter-label">情绪</view>
+        <picker mode="selector" range="{{moodFilterOptions}}" value="{{moodFilterIndex}}" bindchange="onMoodFilterChange">
+          <view class="filter-value">{{moodFilterText}}</view>
+        </picker>
+      </view>
+      <view class="filter-row">
+        <view class="filter-label">事件</view>
+        <picker mode="selector" range="{{triggerFilterOptions}}" value="{{triggerFilterIndex}}" bindchange="onTriggerFilterChange">
+          <view class="filter-value">{{triggerFilterText}}</view>
+        </picker>
+      </view>
+    </view>
+  </view>
+
+  <view class="card card-records">
+    <view class="card-header">
+      <view class="card-title">{{selectedDate}} 的记录</view>
+      <view class="card-subtitle">
+        共 {{filteredRecords.length}} 条
+      </view>
+    </view>
+
+    <view wx:if="{{filteredRecords.length}}">
+      <block wx:for="{{filteredRecords}}" wx:key="id">
+        <view class="history-item">
+          <view class="history-time">{{item.time}}</view>
+          <view class="history-main">
+            <view class="history-line">
+              <text class="history-emotion">{{item.mainEmotion || '未标记情绪'}}</text>
+              <text class="history-moodlevel subtext">情绪指数：{{item.moodLevel}}</text>
+            </view>
+            <view class="tag-group mini" wx:if="{{item.triggers && item.triggers.length}}">
+              <view class="tag tag-mini" wx:for="{{item.triggers}}" wx:key="*this">
+                {{item}}
+              </view>
+            </view>
+            <view class="history-content subtext" wx:if="{{item.content}}">
+              {{item.content}}
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+    <view class="subtext muted" wx:else>
+      这一天目前还没有符合条件的记录。
+    </view>
+  </view>
+  </view>
+</view>

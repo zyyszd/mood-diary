@@ -1,0 +1,52 @@
+<view class="page-shell {{themeClass}} {{fontClass}} {{reduceMotionClass}}">
+  <view class="bg-layer bg--calm"></view>
+  <view class="page-wrapper intro-page">
+  <view class="intro-hero card">
+    <view class="intro-logo">情绪日记</view>
+    <view class="intro-subtitle">给自己的小小情绪角落</view>
+    <view class="intro-privacy subtext">
+      所有记录仅你可见，你可以选择仅本地或云端加密存储。
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">如何称呼你？</view>
+    <input
+      class="intro-input"
+      placeholder="可以是昵称，也可以留空"
+      maxlength="10"
+      confirm-type="done"
+      bindinput="onNicknameInput"
+      value="{{nickname}}"
+    />
+  </view>
+
+  <view class="card">
+    <view class="section-title">数据存储方式</view>
+    <view class="subtext">
+      你可以随时在“我 - 设置与隐私”中修改这些设置。
+    </view>
+
+    <radio-group class="storage-group" bindchange="onStorageChange">
+      <label class="storage-option" wx:for="{{storageOptions}}" wx:key="value">
+        <view class="storage-main">
+          <radio value="{{item.value}}" checked="{{item.value === storageMode}}" />
+          <view class="storage-texts">
+            <view class="storage-title">{{item.label}}</view>
+            <view class="storage-desc subtext">{{item.desc}}</view>
+          </view>
+        </view>
+      </label>
+    </radio-group>
+  </view>
+
+  <view class="intro-footer">
+    <view class="subtext muted">
+      这是一个非医疗类自我关怀工具，如果你感到非常难受，也可以寻求专业帮助。
+    </view>
+    <button class="primary-btn" bindtap="handleEnter" disabled="{{isEntering}}">
+      {{enterBtnText}}
+    </button>
+  </view>
+  </view>
+</view>

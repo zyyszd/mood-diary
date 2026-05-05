@@ -1,0 +1,385 @@
+.record-page {
+}
+
+/* 卡片装饰样式 */
+.card {
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 1;
+}
+
+/* 此刻的你卡片 */
+.card-greeting {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F9F9F9 100%);
+}
+
+.card-greeting::before {
+  background-color: #4FB6B2;
+}
+
+/* 整体心情卡片 */
+.card-mood-level {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F9F9F9 100%);
+}
+
+.card-mood-level::before {
+  background-color: #4FB6B2;
+}
+
+/* 情绪标签卡片 */
+.card-mood-tags {
+  background-color: #FFFFFF;
+}
+
+.card-mood-tags::before {
+  background-color: #2F6E9E;
+}
+
+/* 触发事件卡片 */
+.card-trigger-tags {
+  background-color: #FFFFFF;
+}
+
+.card-trigger-tags::before {
+  background-color: #2F6E9E;
+}
+
+/* 文字输入卡片 */
+.card-text-input {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F9F9F9 100%);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.04);
+}
+
+.card-text-input::before {
+  background-color: #4FB6B2;
+}
+
+/* 语音记录卡片 */
+.card-voice-record {
+  background-color: #FFFFFF;
+}
+
+.card-voice-record::before {
+  background-color: #2F6E9E;
+}
+
+/* AI 分析卡片 */
+.card-ai-analysis {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F9F9F9 100%);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.04);
+}
+
+.card-ai-analysis::before {
+  background-color: #4FB6B2;
+}
+
+/* 夜间模式下的卡片装饰 */
+.theme--dark .card {
+  box-shadow: none;
+  border: 1rpx solid rgba(255, 255, 255, 0.08);
+}
+
+.theme--dark .card-greeting {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+}
+
+.theme--dark .card-mood-level {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+}
+
+.theme--dark .card-mood-tags {
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.theme--dark .card-trigger-tags {
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.theme--dark .card-text-input {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.theme--dark .card-voice-record {
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.theme--dark .card-ai-analysis {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.theme--dark .card-greeting::before {
+  background-color: rgba(79, 182, 178, 0.8);
+}
+
+.theme--dark .card-mood-level::before {
+  background-color: rgba(79, 182, 178, 0.8);
+}
+
+.theme--dark .card-mood-tags::before {
+  background-color: rgba(47, 110, 158, 0.8);
+}
+
+.theme--dark .card-trigger-tags::before {
+  background-color: rgba(47, 110, 158, 0.8);
+}
+
+.theme--dark .card-text-input::before {
+  background-color: rgba(79, 182, 178, 0.8);
+}
+
+.theme--dark .card-voice-record::before {
+  background-color: rgba(47, 110, 158, 0.8);
+}
+
+.theme--dark .card-ai-analysis::before {
+  background-color: rgba(79, 182, 178, 0.8);
+}
+
+.mood-scale-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 24rpx;
+  color: #999999;
+  margin-top: 8rpx;
+}
+
+.mood-text {
+  margin-top: 12rpx;
+}
+
+.record-textarea {
+  margin-top: 16rpx;
+  padding: 24rpx 28rpx;
+  border-radius: 16rpx;
+  background-color: #F7F5F2;
+  min-height: 160rpx;
+  font-size: 28rpx;
+  line-height: 1.6;
+}
+
+.voice-area {
+  margin-top: 8rpx;
+}
+
+.voice-btn {
+  width: 100%;
+  height: 96rpx;
+  line-height: 96rpx;
+  border-radius: 999rpx;
+  background-color: #FFFFFF;
+  color: #2F6E9E;
+  border: 2rpx dashed #4FB6B2;
+  font-size: 30rpx;
+}
+
+.voice-btn--recording {
+  border-style: solid;
+  background-color: rgba(79, 182, 178, 0.10);
+}
+
+@keyframes breatheSoft {
+  0% { transform: scale(1); box-shadow: 0 0 0 rgba(79, 182, 178, 0.0); }
+  50% { transform: scale(1.02); box-shadow: 0 18rpx 40rpx rgba(79, 182, 178, 0.14); }
+  100% { transform: scale(1); box-shadow: 0 0 0 rgba(79, 182, 178, 0.0); }
+}
+
+.voice-btn--breath {
+  animation: breatheSoft 3.2s ease-in-out infinite;
+}
+
+.audio-actions {
+  display: flex;
+  justify-content: center;
+  gap: 24rpx;
+  margin-top: 24rpx;
+  flex-wrap: wrap;
+}
+
+.audio-action-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 120rpx;
+  height: 80rpx;
+  padding: 0 24rpx;
+  border-radius: 16rpx;
+  background-color: #F7F5F2;
+  color: #2F6E9E;
+  font-size: 24rpx;
+  border: 1rpx solid #E2E2E2;
+}
+
+.audio-action-btn .icon-play,
+.audio-action-btn .icon-transcribe,
+.audio-action-btn .icon-delete {
+  font-size: 32rpx;
+  margin-bottom: 4rpx;
+}
+
+.audio-action-btn.delete {
+  color: #E27A7A;
+  border-color: #E27A7A;
+}
+
+.audio-action-btn.loading {
+  color: #999999;
+  background-color: #F0F0F0;
+}
+
+.record-error {
+  color: #E27A7A !important;
+  margin-top: 8rpx;
+}
+
+.ai-line {
+  margin-top: 12rpx;
+}
+
+.ai-label {
+  font-weight: 500;
+}
+
+.record-footer {
+  margin-top: 24rpx;
+}
+
+.ai-chat-area {
+  margin-top: 16rpx;
+}
+
+.chat-messages {
+  max-height: 320rpx;
+  overflow-y: auto;
+  margin-bottom: 16rpx;
+}
+
+.chat-message {
+  margin-bottom: 16rpx;
+  display: flex;
+  max-width: 80%;
+}
+
+.user-message {
+  justify-content: flex-end;
+}
+
+.ai-message {
+  justify-content: flex-start;
+}
+
+.message-content {
+  padding: 16rpx 20rpx;
+  border-radius: 16rpx;
+  font-size: 28rpx;
+  line-height: 1.5;
+}
+
+.user-message .message-content {
+  background-color: #4FB6B2;
+  color: #FFFFFF;
+  border-bottom-right-radius: 4rpx;
+}
+
+.ai-message .message-content {
+  background-color: #F7F5F2;
+  color: #333333;
+  border-bottom-left-radius: 4rpx;
+}
+
+.chat-input-area {
+  display: flex;
+  gap: 12rpx;
+  align-items: center;
+}
+
+.chat-input {
+  flex: 1;
+  height: 72rpx;
+  padding: 0 24rpx;
+  border-radius: 36rpx;
+  background-color: #F7F5F2;
+  font-size: 28rpx;
+  border: 1rpx solid #E2E2E2;
+}
+
+.send-btn {
+  width: 120rpx;
+  height: 72rpx;
+  line-height: 72rpx;
+  border-radius: 36rpx;
+  background-color: #4FB6B2;
+  color: #FFFFFF;
+  font-size: 28rpx;
+  border: none;
+}
+
+.ai-chat-toggle {
+  margin-top: 16rpx;
+  margin-bottom: 16rpx;
+}
+
+.toggle-btn {
+  width: 100%;
+  height: 64rpx;
+  line-height: 64rpx;
+  border-radius: 32rpx;
+  background-color: #F7F5F2;
+  color: #4FB6B2;
+  font-size: 28rpx;
+  border: 1rpx solid #4FB6B2;
+}
+
+.toggle-btn--active {
+  background-color: #4FB6B2;
+  color: #FFFFFF;
+}
+
+.theme--dark .audio-action-btn {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: rgba(79, 182, 178, 0.9);
+}
+
+.theme--dark .audio-action-btn.delete {
+  color: rgba(226, 122, 122, 0.9);
+  border-color: rgba(226, 122, 122, 0.5);
+}
+
+.theme--dark .audio-action-btn.loading {
+  background-color: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.theme--dark .chat-input {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.theme--dark .ai-message .message-content {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.theme--dark .toggle-btn {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: rgba(79, 182, 178, 0.9);
+  border-color: rgba(79, 182, 178, 0.5);
+}
+
+.theme--dark .toggle-btn--active {
+  background-color: rgba(79, 182, 178, 0.8);
+  color: #FFFFFF;
+}

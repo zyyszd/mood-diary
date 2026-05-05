@@ -1,0 +1,116 @@
+<view class="page-shell {{themeClass}} {{fontClass}} {{reduceMotionClass}}">
+  <view class="bg-layer bg--calm"></view>
+  <view class="page-wrapper report-page">
+  <view class="card card-report-header">
+    <view class="card-header">
+      <view class="card-title">{{headerText}}</view>
+      <view class="report-tabs">
+        <view class="report-tab {{period === 'week' ? 'report-tab--active' : ''}}" bindtap="setPeriod" data-value="week">
+          周报
+        </view>
+        <view class="report-tab {{period === 'month' ? 'report-tab--active' : ''}}" bindtap="setPeriod" data-value="month">
+          月报
+        </view>
+      </view>
+    </view>
+    <view class="subtext">
+      报告基于你最近的记录生成，只为了帮助你更好地理解自己，不是专业诊断。
+    </view>
+  </view>
+
+  <view class="card card-emotion-trend">
+    <view class="section-title">情绪趋势</view>
+    <view class="subtext">
+      越往上代表整体情绪越好。
+    </view>
+    <view class="trend-chart">
+      <block wx:for="{{trendPoints}}" wx:key="date">
+        <view class="trend-item">
+          <view class="trend-bar-wrapper">
+            <view class="trend-bar-bg"></view>
+            <view class="trend-bar-fill" style="height: {{item.height}}%;"></view>
+          </view>
+          <view class="trend-date subtext">
+            {{item.shortDate}}
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <view class="card card-emotion-distribution">
+    <view class="section-title">情绪分布</view>
+    <view class="distribution-list">
+      <block wx:for="{{emotionStats}}" wx:key="label">
+        <view class="distribution-item">
+          <view class="distribution-label">{{item.label}}</view>
+          <view class="distribution-bar">
+            <view class="distribution-bar-fill" style="width: {{item.percent}}%;"></view>
+          </view>
+          <view class="distribution-percent subtext">
+            {{item.percent}}%
+          </view>
+        </view>
+      </block>
+      <view class="subtext muted" wx:if="{{!emotionStats.length}}">
+        记录还不够多，暂时无法计算分布。
+      </view>
+    </view>
+  </view>
+
+  <view class="card card-trigger-stats">
+    <view class="section-title">触发事件统计</view>
+    <view class="distribution-list">
+      <block wx:for="{{triggerStats}}" wx:key="label">
+        <view class="distribution-item">
+          <view class="distribution-label">{{item.label}}</view>
+          <view class="distribution-bar">
+            <view class="distribution-bar-fill trigger" style="width: {{item.percent}}%;"></view>
+          </view>
+          <view class="distribution-percent subtext">
+            {{item.percent}}%
+          </view>
+        </view>
+      </block>
+      <view class="subtext muted" wx:if="{{!triggerStats.length}}">
+        目前还没有足够的触发事件数据。
+      </view>
+    </view>
+  </view>
+
+  <view class="card card-word-cloud">
+    <view class="section-title">高频词云</view>
+    <view class="subtext">
+      基于你记录的内容生成的关键词云，越大的词出现频率越高。
+    </view>
+    <view class="word-cloud">
+      <block wx:for="{{wordCloudData}}" wx:key="word">
+        <view class="word-item" style="font-size: {{item.size}}px; opacity: {{item.opacity}};">
+          {{item.word}}
+        </view>
+      </block>
+      <view class="subtext muted" wx:if="!wordCloudData.length">
+        记录还不够多，暂时无法生成词云。
+      </view>
+    </view>
+  </view>
+
+  <view class="card card-summary">
+    <view class="section-title">文字总结</view>
+    <view class="report-text-block">
+      <view class="report-heading">本周期总体情况</view>
+      <view class="subtext">
+        {{summary.overall}}
+      </view>
+      <view class="report-heading">值得肯定的地方</view>
+      <view class="subtext">
+        {{summary.positive}}
+      </view>
+      <view class="report-heading">温和的小建议</view>
+      <view class="subtext">
+        {{summary.suggestion}}
+      </view>
+    </view>
+  </view>
+  </view>
+</view>

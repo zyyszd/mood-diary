@@ -1,0 +1,53 @@
+<view class="page-shell {{themeClass}} {{fontClass}} {{reduceMotionClass}}">
+  <view class="bg-layer bg--warm"></view>
+  <view class="page-wrapper tools-page">
+  <view class="card">
+    <view class="section-title">可以随时用的小工具</view>
+    <view class="subtext">
+      当你感到紧绷、焦虑或疲惫时，可以先在这里停一停。
+    </view>
+  </view>
+
+  <view class="card tool-card" bindtap="startBreathing">
+    <view class="card-header">
+      <view class="card-title">3 分钟呼吸练习</view>
+      <view class="card-subtitle">跟着节奏慢慢吸气和呼气</view>
+    </view>
+    <view class="breath-circle">
+      <view class="breath-inner {{breathStage}}">
+        {{breathHint}}
+      </view>
+    </view>
+    <view class="subtext">
+      建议找一个比较安静的角落，把注意力暂时放在呼吸和身体感受上。
+    </view>
+  </view>
+
+  <view class="card tool-card" bindtap="startBodyScan">
+    <view class="card-header">
+      <view class="card-title">身体扫描</view>
+      <view class="card-subtitle">从头到脚，逐步放松身体</view>
+    </view>
+    <view class="subtext">
+      {{bodyScanHint}}
+    </view>
+  </view>
+
+  <view class="card tool-card">
+    <view class="card-header">
+      <view class="card-title">给自己的一小段鼓励</view>
+      <button class="secondary-btn small" bindtap="randomAffirmation">
+        换一句
+      </button>
+    </view>
+    <view class="affirmation-text">
+      {{affirmation}}
+    </view>
+    <view class="tool-actions">
+      <button class="secondary-btn" bindtap="recordAfterTool">
+        记录此刻的感受
+      </button>
+    </view>
+  </view>
+  </view>
+</view>

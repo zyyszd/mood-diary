@@ -1,0 +1,195 @@
+.profile-page {
+}
+
+/* 卡片装饰样式 */
+.card {
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 1;
+}
+
+/* 个人信息卡片 */
+.profile-header {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F9F9F9 100%);
+}
+
+.profile-header::before {
+  background-color: #4FB6B2;
+}
+
+/* 外观与显示卡片 */
+.card-appearance {
+  background-color: #FFFFFF;
+}
+
+.card-appearance::before {
+  background-color: #2F6E9E;
+}
+
+/* 数据与隐私卡片 */
+.card-data-privacy {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F9F9F9 100%);
+}
+
+.card-data-privacy::before {
+  background-color: #4FB6B2;
+}
+
+/* 提醒卡片 */
+.card-reminder {
+  background-color: #FFFFFF;
+}
+
+.card-reminder::before {
+  background-color: #2F6E9E;
+}
+
+/* 关于卡片 */
+.card-about {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F9F9F9 100%);
+}
+
+.card-about::before {
+  background-color: #4FB6B2;
+}
+
+/* 夜间模式下的卡片装饰 */
+.theme--dark .card {
+  box-shadow: none;
+  border: 1rpx solid rgba(255, 255, 255, 0.08);
+}
+
+.theme--dark .profile-header {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+}
+
+.theme--dark .card-appearance {
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.theme--dark .card-data-privacy {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+}
+
+.theme--dark .card-reminder {
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.theme--dark .card-about {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+}
+
+.theme--dark .profile-header::before {
+  background-color: rgba(79, 182, 178, 0.8);
+}
+
+.theme--dark .card-appearance::before {
+  background-color: rgba(47, 110, 158, 0.8);
+}
+
+.theme--dark .card-data-privacy::before {
+  background-color: rgba(79, 182, 178, 0.8);
+}
+
+.theme--dark .card-reminder::before {
+  background-color: rgba(47, 110, 158, 0.8);
+}
+
+.theme--dark .card-about::before {
+  background-color: rgba(79, 182, 178, 0.8);
+}
+
+.settings-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18rpx 0;
+}
+
+.settings-label {
+  font-size: 28rpx;
+}
+
+.settings-value {
+  font-size: 26rpx;
+  color: #666666;
+}
+
+.settings-value.link {
+  color: #2F6E9E;
+}
+
+.danger-text {
+  color: #E27A7A;
+}
+
+.profile-header {
+  margin-top: 16rpx;
+}
+
+.profile-main {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.profile-avatar {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 50%;
+  background-color: #4FB6B2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-size: 40rpx;
+  font-weight: 600;
+}
+
+.profile-texts {
+  margin-left: 24rpx;
+}
+
+.profile-nickname {
+  font-size: 32rpx;
+  font-weight: 600;
+  margin-bottom: 8rpx;
+}
+
+.settings-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16rpx 0;
+}
+
+.settings-label {
+  font-size: 28rpx;
+}
+
+.settings-value {
+  font-size: 26rpx;
+  color: #999999;
+}
+
+.settings-value.link {
+  color: #2F6E9E;
+}
+
+.settings-item.danger {
+  margin-top: 12rpx;
+}
+
+.danger-text {
+  color: #E27A7A;
+}

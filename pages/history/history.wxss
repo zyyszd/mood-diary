@@ -1,0 +1,157 @@
+.history-page {
+}
+
+/* 卡片装饰样式 */
+.card {
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 1;
+}
+
+/* 日期选择卡片 */
+.card-date-picker {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F9F9F9 100%);
+}
+
+.card-date-picker::before {
+  background-color: #4FB6B2;
+}
+
+/* 筛选卡片 */
+.card-filter {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F9F9F9 100%);
+}
+
+.card-filter::before {
+  background-color: #4FB6B2;
+}
+
+/* 记录列表卡片 */
+.card-records {
+  background-color: #FFFFFF;
+}
+
+.card-records::before {
+  background-color: #2F6E9E;
+}
+
+/* 历史记录项装饰 */
+.history-item {
+  position: relative;
+}
+
+.history-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+/* 夜间模式下的卡片装饰 */
+.theme--dark .card {
+  box-shadow: none;
+  border: 1rpx solid rgba(255, 255, 255, 0.08);
+}
+
+.theme--dark .card-date-picker {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+}
+
+.theme--dark .card-filter {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+}
+
+.theme--dark .card-records {
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.theme--dark .history-item::before {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.theme--dark .card-date-picker::before {
+  background-color: rgba(79, 182, 178, 0.8);
+}
+
+.theme--dark .card-filter::before {
+  background-color: rgba(79, 182, 178, 0.8);
+}
+
+.theme--dark .card-records::before {
+  background-color: rgba(47, 110, 158, 0.8);
+}
+
+.date-picker-value {
+  font-size: 30rpx;
+  color: #2F6E9E;
+}
+
+.filter-group {
+  margin-top: 16rpx;
+}
+
+.filter-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12rpx 0;
+}
+
+.filter-label {
+  font-size: 28rpx;
+}
+
+.filter-value {
+  font-size: 26rpx;
+  color: #2F6E9E;
+}
+
+.history-item {
+  display: flex;
+  flex-direction: row;
+  padding: 16rpx 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.history-time {
+  width: 120rpx;
+  font-size: 26rpx;
+  color: #999999;
+}
+
+.history-main {
+  flex: 1;
+}
+
+.history-line {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.history-emotion {
+  font-size: 30rpx;
+  font-weight: 500;
+}
+
+.history-moodlevel {
+  font-size: 24rpx;
+}
+
+.history-content {
+  margin-top: 8rpx;
+}
